@@ -1,0 +1,43 @@
+CREATE TABLE reports
+
+(
+
+    id int PRIMARY KEY,
+
+    user_id int,
+
+    reward int,
+
+    created_at timestamp without time zone
+
+)
+SELECT user_id FROM reports WHERE created_at >= 01.01.2021
+SELECT SUM(reward) as sum FROM reports
+
+
+CREATE TABLE pos
+
+(
+
+    id int PRIMARY KEY,
+
+    title character varying
+
+)
+
+CREATE TABLE reports
+
+(
+
+    id int PRIMARY KEY,
+
+    barcode character varying,
+
+    price float,
+
+    pos_id int
+
+)
+Необходимо: использовав агрегатные функции, выбрать все шк и цены (reports.barcode, reports.price) с одинаковыми названиями точек продаж (pos.title).
+SELECT barcode, price FROM reports WHERE
+GROUP BY title FROM pos
